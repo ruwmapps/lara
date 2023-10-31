@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Quatrtext;
@@ -33,17 +34,17 @@ class QuatrtextController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
-            'content' => 'required'
-        ]);
+        //$request->validate([
+           //'title' => 'required|string|max:255',
+           // 'slug' => 'required|string|max:255',
+           // 'content' => 'required'
+       // ]);
 
-        Quatrtext::create([
+       // Quatrtext::create([
             //'title' => $request->title,
             //'slug' => \Str::slug($request->slug),
             //'content' => $request->content,
-        ]);
+       // ]);
 
         return redirect()->route('quatrtext.index')->with('status', 'Quatrtext Created Successfully');
     }
@@ -69,11 +70,11 @@ class QuatrtextController extends Controller
      */
     public function update(Request $request, Quatrtext $post): RedirectResponse
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
-            'content' => 'required'
-        ]);
+        //$request->validate([
+            //'title' => 'required|string|max:255',
+           //'slug' => 'required|string|max:255',
+           // 'content' => 'required'
+       // ]);
 
         //$post->title = $request->title;
        //$post->slug = \Str::slug($request->slug);
@@ -88,7 +89,7 @@ class QuatrtextController extends Controller
      */
     public function destroy(Quatrtext $post): RedirectResponse
     {
-        $post->delete();
+        //$post->delete();
 
         return redirect()->route('quatrtext.index')->with('status', 'Quatrtext Delete Successfully');
     }
